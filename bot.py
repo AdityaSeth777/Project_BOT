@@ -1,8 +1,9 @@
+#first open cmd and type "pip install tweepy 3.7"
+#then if doesn't work, type "pip3 install tweepy 3.7"
 import tweepy
 
-
-auth=tweepy.OAuthHandler("BvTJxZOOxPk6OdCR2FIPUYzp2", "OGosnGyCulRfJfPIcdbmSFVNyr0wulzGojk7olkNQTGStXlnHs")
-auth.set_access_token("1543506499938398210-c8s6uvVK6Gc6vBktCJPyE4Nq7JQMJK", "SHgsQmkTjEWi3fYLO0zdwNcQdED69tWTQBwp3f5YoQxaw")
+auth = tweepy.OAuthHandler("YOU_CONSUMER_KEY", "YOUR_CONSUMER_SECRET")
+auth.set_access_token("YOUR_ACCESS_TOKEN", "YOUR_ACCESS_SECRET")
 api = tweepy.API(auth)
 
 # Tweet something
@@ -22,6 +23,7 @@ def store_last_seen(FILE_NAME, last_seen_id):
     file_write.write(str(last_seen_id))
     file_write.close()
     return
+#replying against specific keyword i.e. #adibot
 def reply ():
  tweets=api.mentions_timeline (read_last_seen(FILE_NAME), tweet_mode='extended')
  for tweet in reversed(tweets):
